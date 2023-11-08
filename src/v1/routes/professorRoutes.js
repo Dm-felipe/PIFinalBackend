@@ -1,13 +1,16 @@
 const express = require('express');
-const professorController = require('../../controllers/professorController');
-
 const router = express.Router();
+const professorController = require('./professorController');
+const requireAuthentication = require('./requireAuthentication'); // Importa tu middleware de autenticación
 
-router
-    .get('/', professorController.getAllProfessors)
-    .get('/:id', professorController.getProfessorById)
-    .post('/', professorController.createProfessor)
-    .patch('/:id', professorController.updateProfessor)
-    .delete('/:id', professorController.deleteProfessor);
+router.get('/', professorController.getAllProfessors);
+router.get('/:id', professorController.getProfessorById);
+
+//el middleware de autenticación solo a estas rutas
+router.use(requireAuthentication);
+
+router.post('/', professorController.createProfessor);
+router.patch('/:id', professorController.updateProfessor);
+router.delete('/:id', professorController.deleteProfessor);
 
 module.exports = router;
