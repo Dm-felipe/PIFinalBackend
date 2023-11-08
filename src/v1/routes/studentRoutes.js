@@ -1,6 +1,6 @@
 const express = require('express');
 const studentController = require('../../controllers/studentController');
-const requireAuthentication = require('./requireAuthentication'); // Importa tu middleware de autenticación
+const requireAuthentication = require('./requireAuthentication'); // Importamiddleware de autenticación
 
 const router = express.Router();
 
