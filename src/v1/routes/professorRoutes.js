@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const professorController = require('./professorController');
-const requireAuthentication = require('./requireAuthentication'); // Importa tu middleware de autenticación
+const requireAuthentication = require('./requireAuthentication'); // Importa middleware de autenticación
 
 router.get('/', professorController.getAllProfessors);
 router.get('/:id', professorController.getProfessorById);
