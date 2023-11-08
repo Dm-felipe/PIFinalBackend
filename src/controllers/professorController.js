@@ -25,9 +25,7 @@ const getProfessorById = async (req, res) => {
 }
 
 const createProfessor = async (req, res) => {
-    if (!req.user.isAdmin) {
-        return res.status(401).json({ error: "No tiene autorización para crear profesores" });
-    }
+   
 
     const professorData = req.body;
 
@@ -43,9 +41,7 @@ const updateProfessor = async (req, res) => {
     const professorId = req.params.id;
     const professorData = req.body;
 
-    if (!req.user.isAdmin) {
-        return res.status(401).json({ error: "No tiene autorización para actualizar profesores" });
-    }
+    
 
     try {
         const updatedProfessor = await professorService.updateProfessor(professorId, professorData);
