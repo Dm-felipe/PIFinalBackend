@@ -62,10 +62,7 @@ const updateProfessor = async (req, res) => {
 const deleteProfessor = async (req, res) => {
     const professorId = req.params.id;
 
-    if (!req.user.isAdmin) {
-        return res.status(401).json({ error: "No tiene autorización para eliminar profesores" });
-    }
-
+    
     try {
         const deletedProfessor = await professorService.deleteProfessor(professorId);
         if (deletedProfessor) {
